@@ -9,7 +9,7 @@ namespace Fullstack.API.models
 
         public string LastNAme { get; set; }
 
-        public string PictureUrl { get; set; }
+        public string Position { get; set; }
 
     }
 }

@@ -33,10 +33,13 @@ namespace Fullstack.API.Services
         public async Task RemoveAsync(string id) => await _employeeCollection.DeleteOneAsync(x => x.Id == id);
 
 
-        public async Task AddReportAsync( Report newReport)
+        public async Task AddReportAsync(Report newReport)
         { 
             Employee employeeToUpdate = await _employeeCollection.Find(x => x.Id == newReport.AssignTo).FirstOrDefaultAsync();
-            employeeToUpdate.ReportList.Add(newReport);
+            if (employeeToUpdate != null)
+            {
+                employeeToUpdate.ReportList.Add(newReport);
+            }
             await _employeeCollection.ReplaceOneAsync(x => x.Id == newReport.AssignTo, employeeToUpdate);
         }
         public async Task AssignTaskToEmployee(WorkTask newWorkTask)

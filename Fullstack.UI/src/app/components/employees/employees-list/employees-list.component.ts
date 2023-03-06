@@ -1,5 +1,5 @@
 
-/*
+
 import { Component } from '@angular/core';
 import { Employee } from 'src/app/models/employee.model';
 import { EmployeesService } from 'src/app/services/employees.service';
@@ -73,8 +73,7 @@ export class EmployeesListComponent {
 
     }
 }
-*/
-
+/*
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../../../models/employee.model';
 import { EmployeeService } from '../../../services/employees.service';
@@ -150,3 +149,4 @@ export class EmployeeListComponent implements OnInit {
       });
   }
 }
+*/

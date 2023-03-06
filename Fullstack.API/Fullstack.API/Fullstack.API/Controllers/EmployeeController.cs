@@ -17,6 +17,8 @@ namespace Fullstack.API.Controllers
 
         [HttpGet]
         public async Task<List<Employee>> Get() => await _employeeService.GetAsync();
+        //bruno: this is not working
+       // public async Task<List<Employee>> Get() => Ok(await _employeeService.GetAsync());
 
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<Employee>> Get(string id)

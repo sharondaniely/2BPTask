@@ -1,4 +1,4 @@
-/*
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -18,9 +18,9 @@ export class EmployeesService {
     return this.http.get<Employee[]>(this.baseApiUrl+'api/employee');
     }
 }
-*/
 
 
+/*
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
@@ -101,3 +101,4 @@ export class EmployeeService {
   }
     };
   }
+*/
