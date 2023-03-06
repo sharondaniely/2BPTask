@@ -33,8 +33,6 @@ namespace Fullstack.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Employee newEmployee)
         {
-           // Guid id = Guid.NewGuid();
-            //newEmployee.Id = id.ToString();
             await _employeeService.CreateAsync(newEmployee);
 
             return Ok();
@@ -70,6 +68,22 @@ namespace Fullstack.API.Controllers
             await _employeeService.RemoveAsync(id);
 
             return NoContent();
+        }
+
+        [HttpPost("~/report")]
+        public async Task<IActionResult> Report([FromBody] Report newReport)
+        {
+            await _employeeService.AddReportAsync(newReport);
+
+            return Ok();
+        }
+
+        [HttpPost("~/assign")]
+        public async Task<IActionResult> AssignTask([FromBody] WorkTask task)
+        {
+            await _employeeService.AssignTaskToEmployee(task);
+
+            return Ok();
         }
 
 
