@@ -10,12 +10,12 @@ import { Employee } from '../models/employee.model';
 })
 export class EmployeesService {
 
-  baseApiUrl:string= environment.baseApiUrl; 
-    
+  baseUrl:string= environment.baseApiUrl; 
+  //constructor() { };
   constructor(private http: HttpClient) { };
 
   getAllEmployees(): Observable<Employee[]>{
-    return this.http.get<Employee[]>(this.baseApiUrl+'api/employee');
+    return this.http.get<Employee[]>(this.baseUrl+'api/employees');
     }
 }
 

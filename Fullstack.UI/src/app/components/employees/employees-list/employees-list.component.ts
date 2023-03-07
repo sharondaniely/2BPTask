@@ -1,5 +1,3 @@
-
-
 import { Component } from '@angular/core';
 import { Employee } from 'src/app/models/employee.model';
 import { EmployeesService } from 'src/app/services/employees.service';
@@ -10,54 +8,28 @@ import { EmployeesService } from 'src/app/services/employees.service';
   styleUrls: ['./employees-list.component.css']
 })
 export class EmployeesListComponent {
-  employees:Employee[]=[];
-
-  const_employees:Employee[]=[
-
+  employees:Employee[]=[
       {
-        id: '1234-234-2345',
-        name: 'Sharon',
-        email: 'Sharon@gmail.com',
-        phone: 78675758,
-        salary:20000,
-        department:'Dev'
+        id: "100",
+        firstName: "bla",
+        lastName: "bla",
+        position: "Devil"
       },
       {
-        id: '1234-6789-3467',
-        name: 'Jone',
-        email: 'Jones@gmail.com',
-        phone: 66573872,
-        salary:25000,
-        department:'Dev'
+        id: "101",
+        firstName: "daba",
+        lastName: "daba",
+        position: "TV"
       },
       {
-        id: '1234-789-2345',
-        name: 'Mark',
-        email: 'MarkZu@gmail.com',
-        phone: 1234567,
-        salary:50000,
-        department:'Business'
+        id: "102",
+        firstName: "koo",
+        lastName: "koo",
+        position: "CTO"
       },
-      {
-        id: '1234-1111-2345',
-        name: 'kathy',
-        email: 'kathy@gmail.com',
-        phone: 12345678987654,
-        salary:4200,
-        department:'Marketing'
-      },
-      {
-        id: '1234-777-2345',
-        name: 'moshe',
-        email: 'moshe@gmail.com',
-        phone: 4676465,
-        salary:23000,
-        department:'Dev'
-      }
 
 
-    ]
-
+  ];
     constructor(private employeesService:EmployeesService) {}
     
     ngOnInit(): void {
@@ -68,9 +40,7 @@ export class EmployeesListComponent {
         error: (response) =>{
           console.log(response);
         }
-
       })
-
     }
 }
 /*

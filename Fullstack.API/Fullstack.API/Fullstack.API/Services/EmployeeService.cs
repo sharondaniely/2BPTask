@@ -21,8 +21,20 @@ namespace Fullstack.API.Services
         public async Task<List<Employee>> GetAsync() =>
             await _employeeCollection.Find(_ => true).ToListAsync();
 
-        public async Task<Employee?> GetAsync(string id) =>
-            await _employeeCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+        public async Task<Employee?> GetAsync(string id) {
+            
+            Employee currEmployee= await _employeeCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+            if (currEmployee.Managerid != null)
+            {
+                Employee manager = await _employeeCollection.Find(x => x.Id == currEmployee.Managerid).FirstOrDefaultAsync();
+                currEmployee.ManagerName = manager.FirstName + " " + manager.LastName;
+            }
+            else
+                currEmployee.ManagerName = "";
+
+
+            return currEmployee;
+            }
 
         public async Task CreateAsync(Employee newEmployee) =>
             await _employeeCollection.InsertOneAsync(newEmployee);

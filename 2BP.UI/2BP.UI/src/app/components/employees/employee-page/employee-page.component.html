@@ -1,0 +1,70 @@
+<div class="container my-5"> 
+<table class="table table-borderless  mx-3" >
+    <tbody>
+        <tr>
+            <td rowspan="3">
+                <img src="../../../../assets/images/humanIcon.png" width="150px" height="150px"
+
+                class="img rounded mx-auto d-block" alt="../../../../assets/images/humanIcon.png"></td>
+            <td>Name:</td>
+            <td>{{currEmployee.firstName}} {{currEmployee.lastName}}</td>
+            
+          </tr>
+          <tr>
+            <td>Position:</td>
+            <td>{{currEmployee.position}}</td>
+            <td></td>
+          </tr>
+          <tr style="border-top:1px solid black">
+            
+            <td>Manager:</td>
+            <td>{{currEmployee.managerName}}</td>
+            <td>
+                <button class="btn btn-outline-primary btn-sm" >Report</button>
+            </td>
+                   <!-- <button class="btn btn-outline-primary btn-sm" 
+                       [routerLink]="['/employees', 'employee', employee.firstName+' '+employee.lastName]">
+                        View
+                    </button>-->
+          </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container my-5"> 
+<h5>My Tasks:</h5>
+<div class="table-wrapper-scroll-y my-custom-scrollbar rounded" style="background-color: rgb(240, 244, 245); " >
+
+    <table id="task-list-table" class="table table-hover mb-0 h-25" *ngIf="currEmployee.taskList.length > 0">
+      <tbody>
+        <tr *ngFor="let task of currEmployee.taskList">
+          <td class="w-75">{{task.data}} </td>
+          <td class="w-25">{{task.dueDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="text-secondary mx-3" *ngIf="currEmployee.taskList.length==0">No Tasks To Show</p>
+  
+  </div>
+</div>
+
+<div class="container my-5" *ngIf="currEmployee.subordinates.length > 0"> 
+    <h5>My Subordinates:</h5>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar rounded" style="background-color: rgb(240, 244, 245); " >
+    
+        <table class="table table-hover mb-0 h-25">
+          <tbody>
+            <tr *ngFor="let employee of currEmployee.subordinates">
+              <td class="w-25">{{employee.firstName}} {{employee.lastName}}</td>
+              <td class="w-25">{{employee.position}}</td>
+              <td>
+                <button class="btn btn-outline-primary btn-sm" >Assign Task</button>
+            </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      
+      </div>
+    </div>
+    

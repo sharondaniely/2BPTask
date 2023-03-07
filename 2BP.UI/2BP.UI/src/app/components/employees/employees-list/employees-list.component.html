@@ -1,7 +1,7 @@
 <div class="container my-5"> 
-    <h1 class="mb-3">Employee List</h1>
+    <h1 class="text-center mb-3">Employee List</h1>
 
-<table class="table">
+<table class="table  mx-3" *ngIf="mockEmployees.length > 0" >
     <thead>
       <tr>
         <th>Name</th>
@@ -15,14 +15,15 @@
         <td>{{employee.firstName}} {{employee.lastName}}</td>
         <td>{{employee.position}}</td>
         <td>
-            <button class="btn btn-outline-primary btn-sm" > View</button>
-               <!--[routerLink]="['/employees', employee.id, 'edit']">
+            <button class="btn btn-outline-primary btn-sm" 
+               [routerLink]="['/employees', 'employee', employee.id]">
                 View
-            </button>--> 
+            </button>
         </td>
       </tr>
 
     </tbody>
   </table>
+  <h5 class="text-secondary mx-3" *ngIf="mockEmployees.length==0">No Employees To Show</h5>
 
 </div>

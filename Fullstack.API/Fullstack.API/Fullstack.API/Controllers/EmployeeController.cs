@@ -16,14 +16,14 @@ namespace Fullstack.API.Controllers
         public EmployeeController(EmployeeService employeeService) => _employeeService = employeeService;
 
         [HttpGet]
-        public async Task<List<Employee>> Get() => await _employeeService.GetAsync();
+        public async Task<List<Employee>> GetEmployeesList() => await _employeeService.GetAsync();
         //bruno: this is not working
        // public async Task<List<Employee>> Get() => Ok(await _employeeService.GetAsync());
 
-        [HttpGet("{id:length(24)}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Employee>> Get(string id)
         {
-            var employee = await _employeeService.GetAsync(id);
+            Employee employee = await _employeeService.GetAsync(id);
 
             if (employee is null)
             {
