@@ -67,7 +67,6 @@ export class TaskModalComponent implements OnInit {
     this.task.creationDate= new Date();
     this.task.id=Guid.create().toString();
     this.task.dueDate= new Date(this.dueDateSelected.year, this.dueDateSelected.month-1,this.dueDateSelected.day);
-    console.log(this.task);
     this.employeeService.assignTask(this.task).subscribe( {
       next: (response)=>{
             this.activeModal.close();

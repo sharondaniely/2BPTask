@@ -11,8 +11,4 @@ export class AppComponent {
 
   constructor(private modalService: NgbModal) { }
 
-  openModal() {
-    const modalRef = this.modalService.open(ModalComponent);
-
-  }
 }

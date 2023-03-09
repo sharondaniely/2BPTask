@@ -1,7 +1,7 @@
 <div class="container my-5"> 
     <h1 class="text-center mb-3">Employee List</h1>
 
-<table class="table  mx-3" *ngIf="mockEmployees.length > 0" >
+<table class="table  mx-3" *ngIf="employees && employees.length > 0" >
     <thead>
       <tr>
         <th>Name</th>
@@ -24,6 +24,6 @@
 
     </tbody>
   </table>
-  <h5 class="text-secondary mx-3" *ngIf="mockEmployees.length==0">No Employees To Show</h5>
+  <h5 class="text-secondary mx-3" *ngIf="!employees || employees.length==0">No Employees To Show</h5>
 
 </div>

@@ -29,7 +29,7 @@
 
 <div class="container my-4" id="taskComponent"> 
 <h5>My Tasks:</h5>
-<div class="table-wrapper-scroll-y my-custom-scrollbar rounded" style="background-color: rgb(240, 244, 245); " >
+<div class="table-wrapper-scroll-y my-custom-scrollbar rounded light-background" >
 
     <table id="task-list-table" class="table table-hover mb-0 h-25" *ngIf="currEmployee.taskList.length > 0">
       <tbody>
@@ -44,9 +44,9 @@
   </div>
 </div>
 
-<div class="container my-4" id="subordinatesComponent" *ngIf="currEmployee.subordinates.length > 0"> 
+<div class="container my-4" id="subordinatesComponent" *ngIf="currEmployee.subordinates.length>0"> 
     <h5>My Subordinates:</h5>
-    <div class="table-wrapper-scroll-y my-custom-scrollbar rounded" style="background-color: rgb(240, 244, 245); " >
+    <div class="table-wrapper-scroll-y my-custom-scrollbar rounded light-background" >
     
         <table class="table table-hover mb-0 h-25">
           <tbody>

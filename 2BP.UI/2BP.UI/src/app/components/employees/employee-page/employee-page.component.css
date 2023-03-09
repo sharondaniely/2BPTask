@@ -6,3 +6,6 @@
     .table-wrapper-scroll-y {
     display: block;
     }
+.light-background {
+    background-color: rgb(240, 244, 245);
+}

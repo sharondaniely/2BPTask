@@ -16,9 +16,7 @@ namespace Fullstack.API.Controllers
         public EmployeeController(EmployeeService employeeService) => _employeeService = employeeService;
 
         [HttpGet]
-        public async Task<List<Employee>> GetEmployeesList() => await _employeeService.GetAsync();
-        //bruno: this is not working
-       // public async Task<List<Employee>> Get() => Ok(await _employeeService.GetAsync());
+        public async Task<ActionResult<List<Employee>>> GetEmployeesList() => Ok(await _employeeService.GetAsync());
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Employee>> Get(string id)
@@ -30,9 +28,28 @@ namespace Fullstack.API.Controllers
                 return NotFound();
             }
 
-            return employee;
+            return Ok(employee);
         }
-        [HttpPost]
+
+        [HttpPost("report")]
+        public async Task<ActionResult> Report([FromBody] Report newReport)
+        {
+            await _employeeService.AddReportAsync(newReport);
+
+            return Ok();
+        }
+
+        [HttpPost("assign")]
+        public async Task<ActionResult> AssignTask([FromBody] WorkTask task)
+        {
+            await _employeeService.AssignTaskToEmployee(task);
+
+            return Ok();
+        }
+
+
+        //code to use while debug to edit DB
+        /*[HttpPost]
         public async Task<IActionResult> Post([FromBody] Employee newEmployee)
         {
             await _employeeService.CreateAsync(newEmployee);
@@ -40,7 +57,7 @@ namespace Fullstack.API.Controllers
             return Ok();
         }
 
-        [HttpPut("{id:length(24)}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, Employee updatedEmployee)
         {
             var employee = await _employeeService.GetAsync(id);
@@ -57,7 +74,7 @@ namespace Fullstack.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:length(24)}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             var employee = await _employeeService.GetAsync(id);
@@ -70,23 +87,9 @@ namespace Fullstack.API.Controllers
             await _employeeService.RemoveAsync(id);
 
             return NoContent();
-        }
+        }*/
 
-        [HttpPost("report")]
-        public async Task<IActionResult> Report([FromBody] Report newReport)
-        {
-            await _employeeService.AddReportAsync(newReport);
 
-            return Ok();
-        }
-
-        [HttpPost("assign")]
-        public async Task<IActionResult> AssignTask([FromBody] WorkTask task)
-        {
-            await _employeeService.AssignTaskToEmployee(task);
-
-            return Ok();
-        }
 
 
 

@@ -37,17 +37,6 @@ namespace Fullstack.API.Services
             return currEmployee;
             }
 
-        public async Task CreateAsync(Employee newEmployee)
-        {
-            newEmployee.Id= ObjectId.GenerateNewId().ToString();
-            await _employeeCollection.InsertOneAsync(newEmployee);
-        }
-
-        public async Task UpdateAsync(string id, Employee updatedEmployee) =>
-            await _employeeCollection.ReplaceOneAsync(x => x.Id == id, updatedEmployee);
-
-        public async Task RemoveAsync(string id) => await _employeeCollection.DeleteOneAsync(x => x.Id == id);
-
 
         public async Task AddReportAsync(Report newReport)
         { 
@@ -65,8 +54,20 @@ namespace Fullstack.API.Services
             await _employeeCollection.ReplaceOneAsync(x => x.Id == newWorkTask.AssignTo, employeeToUpdate);
         }
 
+        //code using while debug to edit the DB
 
+        /*
+        public async Task CreateAsync(Employee newEmployee)
+        {
+            newEmployee.Id = ObjectId.GenerateNewId().ToString();
+            await _employeeCollection.InsertOneAsync(newEmployee);
+        }
 
+        public async Task UpdateAsync(string id, Employee updatedEmployee) =>
+            await _employeeCollection.ReplaceOneAsync(x => x.Id == id, updatedEmployee);
+
+        public async Task RemoveAsync(string id) => await _employeeCollection.DeleteOneAsync(x => x.Id == id);
+        */
 
     }
 }

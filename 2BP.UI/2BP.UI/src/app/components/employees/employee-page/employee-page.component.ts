@@ -49,12 +49,10 @@ export class EmployeePageComponent {
     this.route.paramMap.subscribe({
       next: (params)=>{
         const id= params.get('id');
-        console.log(params);
         if(id){
           this.employeeService.getEmployeeData(id).subscribe({
             next: (response) =>{
               this.currEmployee=response;
-              console.log(this.currEmployee);
             },
             error: (response)=> {
               console.log(response);
