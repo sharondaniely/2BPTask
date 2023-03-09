@@ -52,7 +52,8 @@ How to run the app:
 
 in case you have miss some libraries please run "npm i"
 
-
+Enjoy the App
+Sharon Daniely
 
 
  
