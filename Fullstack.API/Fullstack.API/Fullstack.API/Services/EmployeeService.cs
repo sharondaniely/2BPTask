@@ -1,5 +1,6 @@
 ﻿using Fullstack.API.models;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace Fullstack.API.Services
@@ -24,9 +25,9 @@ namespace Fullstack.API.Services
         public async Task<Employee?> GetAsync(string id) {
             
             Employee currEmployee= await _employeeCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
-            if (currEmployee.Managerid != null)
+            if (currEmployee.ManagerId != null)
             {
-                Employee manager = await _employeeCollection.Find(x => x.Id == currEmployee.Managerid).FirstOrDefaultAsync();
+                Employee manager = await _employeeCollection.Find(x => x.Id == currEmployee.ManagerId).FirstOrDefaultAsync();
                 currEmployee.ManagerName = manager.FirstName + " " + manager.LastName;
             }
             else
@@ -36,8 +37,11 @@ namespace Fullstack.API.Services
             return currEmployee;
             }
 
-        public async Task CreateAsync(Employee newEmployee) =>
+        public async Task CreateAsync(Employee newEmployee)
+        {
+            newEmployee.Id= ObjectId.GenerateNewId().ToString();
             await _employeeCollection.InsertOneAsync(newEmployee);
+        }
 
         public async Task UpdateAsync(string id, Employee updatedEmployee) =>
             await _employeeCollection.ReplaceOneAsync(x => x.Id == id, updatedEmployee);

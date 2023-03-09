@@ -1,4 +1,4 @@
-<div class="container my-5"> 
+<div class="container my-4" id="employeeInfo"> 
 <table class="table table-borderless  mx-3" >
     <tbody>
         <tr>
@@ -15,23 +15,19 @@
             <td>{{currEmployee.position}}</td>
             <td></td>
           </tr>
-          <tr style="border-top:1px solid black">
+          <tr style="border-top:1px solid black" >
             
             <td>Manager:</td>
-            <td>{{currEmployee.managerName}}</td>
+            <td>{{currEmployee.managerName =='' ? 'you have no manager':currEmployee.managerName }}</td>
             <td>
-                <button class="btn btn-outline-primary btn-sm" >Report</button>
+                <button type="button"  (click)="openReportModal()" class="btn btn-outline-primary btn-sm" data-toggle="modal" *ngIf="currEmployee.managerName !=''" >Report</button>
             </td>
-                   <!-- <button class="btn btn-outline-primary btn-sm" 
-                       [routerLink]="['/employees', 'employee', employee.firstName+' '+employee.lastName]">
-                        View
-                    </button>-->
           </tr>
     </tbody>
   </table>
 </div>
 
-<div class="container my-5"> 
+<div class="container my-4" id="taskComponent"> 
 <h5>My Tasks:</h5>
 <div class="table-wrapper-scroll-y my-custom-scrollbar rounded" style="background-color: rgb(240, 244, 245); " >
 
@@ -48,7 +44,7 @@
   </div>
 </div>
 
-<div class="container my-5" *ngIf="currEmployee.subordinates.length > 0"> 
+<div class="container my-4" id="subordinatesComponent" *ngIf="currEmployee.subordinates.length > 0"> 
     <h5>My Subordinates:</h5>
     <div class="table-wrapper-scroll-y my-custom-scrollbar rounded" style="background-color: rgb(240, 244, 245); " >
     
@@ -58,13 +54,12 @@
               <td class="w-25">{{employee.firstName}} {{employee.lastName}}</td>
               <td class="w-25">{{employee.position}}</td>
               <td>
-                <button class="btn btn-outline-primary btn-sm" >Assign Task</button>
+                <button type="button" (click)="openTaskModal(employee.id)" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Assign Task</button>
             </td>
             </tr>
             
           </tbody>
         </table>
       
-      </div>
     </div>
-    
+</div>

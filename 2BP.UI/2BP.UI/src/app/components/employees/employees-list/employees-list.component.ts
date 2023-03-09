@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeesListItem } from 'src/app/models/employees-list-item.models';
 import { EmployeesService } from 'src/app/services/employees.service';
 
+
 @Component({
   selector: 'app-employees-list',
   templateUrl: './employees-list.component.html',

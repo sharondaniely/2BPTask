@@ -1,0 +1,106 @@
+[
+  {
+    "id": "04336c83-f49d-4683-d1d5-de2981aef8fb",
+    "firstName": "Rick",
+    "lastName": "Sanchez",
+    "pictureUrl": "",
+    "position": "CEO",
+    "managerId": null,
+    "managerName": "",
+    "taskList": [],
+    "subordinates": [
+      {
+        "id": "77d6e484-a864-4595-bd06-d9aa55045415",
+        "firstName": "Morty",
+        "lastName": "Smith",
+        "position": "COO"
+      },
+      {
+        "id": "07454286-ef55-4eeb-bb7a-734fa5a7374c",
+        "firstName": "Pickle",
+        "lastName": "Rick",
+        "position": "Chief Pickles Officer"
+      }
+    ],
+    "reportList": []
+  },
+  {
+    "id": "77d6e484-a864-4595-bd06-d9aa55045415",
+    "firstName": "Morty",
+    "lastName": "Smith",
+    "pictureUrl": "",
+    "position": "COO",
+    "managerId": "04336c83-f49d-4683-d1d5-de2981aef8fb",
+    "managerName": "",
+    "taskList": [],
+    "subordinates": [
+      {
+        "id": "afb85b34-7113-4a9d-9c75-cb6e97e2d61d",
+        "firstName": "Beth",
+        "lastName": "Smith",
+        "position": "Cheff"
+      },
+      {
+        "id": "11457b7d-322e-4c98-93fa-e802970b38ba",
+        "firstName": "Jerry",
+        "lastName": "Smith",
+        "position": "CFO"
+      },
+      {
+        "id": "d09919bc-4b52-4ff4-97d8-5d3ea83275af",
+        "firstName": "Summer",
+        "lastName": "Smith",
+        "position": "Student"
+      }
+    ],
+    "reportList": []
+  },
+  {
+    "id": "07454286-ef55-4eeb-bb7a-734fa5a7374c",
+    "firstName": "Pickle",
+    "lastName": "Rick",
+    "pictureUrl": "",
+    "position": "Chief Pickles Officer",
+    "managerId": "04336c83-f49d-4683-d1d5-de2981aef8fb",
+    "managerName": "",
+    "taskList": [],
+    "subordinates": [],
+    "reportList": []
+  },
+  {
+    "id": "afb85b34-7113-4a9d-9c75-cb6e97e2d61d",
+    "firstName": "Beth",
+    "lastName": "Smith",
+    "pictureUrl": "",
+    "position": "Cheff",
+    "managerId": "77d6e484-a864-4595-bd06-d9aa55045415",
+    "managerName": "",
+    "taskList": [],
+    "subordinates": [],
+    "reportList": []
+  },
+  {
+    "id": "afb85b34-7113-4a9d-9c75-cb6e97e2d61d",
+    "firstName": "Jerry",
+    "lastName": "Smith",
+    "pictureUrl": "",
+    "position": "CFO",
+    "managerId": "77d6e484-a864-4595-bd06-d9aa55045415",
+    "managerName": "",
+    "taskList": [],
+    "subordinates": [],
+    "reportList": []
+  },
+  {
+    "id": "d09919bc-4b52-4ff4-97d8-5d3ea83275af",
+    "firstName": "Summer",
+    "lastName": "Smith",
+    "pictureUrl": "",
+    "position": "Student",
+    "managerId": "77d6e484-a864-4595-bd06-d9aa55045415",
+    "managerName": "",
+    "taskList": [],
+    "subordinates": [],
+    "reportList": []
+  }
+]

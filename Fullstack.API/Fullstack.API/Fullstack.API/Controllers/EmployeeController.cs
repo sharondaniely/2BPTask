@@ -72,7 +72,7 @@ namespace Fullstack.API.Controllers
             return NoContent();
         }
 
-        [HttpPost("~/report")]
+        [HttpPost("report")]
         public async Task<IActionResult> Report([FromBody] Report newReport)
         {
             await _employeeService.AddReportAsync(newReport);
@@ -80,7 +80,7 @@ namespace Fullstack.API.Controllers
             return Ok();
         }
 
-        [HttpPost("~/assign")]
+        [HttpPost("assign")]
         public async Task<IActionResult> AssignTask([FromBody] WorkTask task)
         {
             await _employeeService.AssignTaskToEmployee(task);
