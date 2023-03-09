@@ -3,6 +3,8 @@ import { EmployeesListItem } from "./employees-list-item.models";
 import { Report } from "./report.models";
 import { WorkTask } from "./work-task.models";
 
+//represent the DB instance
+
 export interface Employee {
 id: string,
 firstName: string,
