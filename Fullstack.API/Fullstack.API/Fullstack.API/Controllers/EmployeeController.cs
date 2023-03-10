@@ -49,7 +49,8 @@ namespace Fullstack.API.Controllers
 
 
         //code to use while debug to edit DB
-        /*[HttpPost]
+        /*
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody] Employee newEmployee)
         {
             await _employeeService.CreateAsync(newEmployee);
@@ -87,8 +88,8 @@ namespace Fullstack.API.Controllers
             await _employeeService.RemoveAsync(id);
 
             return NoContent();
-        }*/
-
+        }
+        */
 
 
 
