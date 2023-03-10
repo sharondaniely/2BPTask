@@ -2,9 +2,13 @@ Welcome!
 
 This Project is a small project that represents organization structure.
 
-Backend: .Net 6
-Frontend: Angular
+Backend: .Net 6 |
+Frontend: Angular |
 DB: MongoDB (cloud)
+
+This is my first project in Angalar and first time using NOSQL DB.
+I learned a lot during the task :-)
+
 
 In details:
 
@@ -33,7 +37,8 @@ In details:
         Backend allows the UI to communicate with it through its CORS (more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
     
-    I assumed that the EmployeeList is valid and in case of error it will log in the console
+    I assumed that the EmployeeList is valid.
+    In case of error it will log in the console
 
         
 
