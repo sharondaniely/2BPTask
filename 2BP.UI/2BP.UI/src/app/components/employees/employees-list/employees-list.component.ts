@@ -10,7 +10,7 @@ import { EmployeesService } from 'src/app/services/employees.service';
 })
 export class EmployeesListComponent implements OnInit{
   employees : EmployeesListItem[] = [];  
-  
+  isLoading=true;
   constructor (private employeeService: EmployeesService) {}
 
 
@@ -18,10 +18,17 @@ export class EmployeesListComponent implements OnInit{
     this.employeeService.getEmployeesList().subscribe({
       next: (employees)=>{
         this.employees=employees;
+        
       },
       error: (response)=> {
         console.log(response);
+    
+      },
+      complete: ()=>{
+        this.isLoading=false;
       }
+
+      
       
     });
 

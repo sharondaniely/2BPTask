@@ -11,8 +11,8 @@ using Newtonsoft.Json;
 
 namespace FullStack.API.Tests
 {
-
-    public class UnitTest1
+    
+    public class UnitTest
     {
         private Mock<IOptions<DatabaseSettings>> _mockDBSettings;
         private Mock<IMongoClient> mongoClient;
@@ -151,7 +151,7 @@ namespace FullStack.API.Tests
                 }
             };
         private string insertedEmployeeId="";
-        public UnitTest1()
+        public UnitTest()
         {
             this.mongoClient = new Mock<IMongoClient>();
             this.EmployeeMockCollection = new Mock<IMongoCollection<Employee>>();
@@ -160,7 +160,7 @@ namespace FullStack.API.Tests
         }
 
 
-
+        //test collection constructor
         [Fact]
             public void a_MongoCollectionContractorSuccess()
             {
@@ -183,7 +183,7 @@ namespace FullStack.API.Tests
 
            
             }
-
+        //test get collection where collection name is empty string. should fail and  return null
         [Fact]
         public void b_GetMongoCollectionNameEmptyFailure()
         {
@@ -207,7 +207,7 @@ namespace FullStack.API.Tests
 
 
         }
-
+        //test get collection where collection name is valid.
         [Fact]
         public void c_GetMongoCollectionValidNameSuccess()
         {
@@ -233,9 +233,9 @@ namespace FullStack.API.Tests
         }
 
 
-
+        //test insert Employee instance to collection 
         [Fact]
-        public async Task e_InsertEmployeeListSuccess()
+        public async Task f_InsertEmployeeListSuccess()
         {
             var settings = new DatabaseSettings()
             {
@@ -255,13 +255,13 @@ namespace FullStack.API.Tests
             int employeeListCountBeforeInsertion = service.GetAsync().Result.Count();
             await service.CreateAsync(testEmployee);
             int employeeListCountAfterInsertion = service.GetAsync().Result.Count();
-
+            //Assert
             Assert.True(employeeListCountBeforeInsertion + 1 == employeeListCountAfterInsertion);
 
         }
-
+        //test get collection
         [Fact]
-        public void f_GetEmployeeListSuccess()
+        public void e_GetEmployeeListSuccess()
         {
             var settings = new DatabaseSettings()
             {
@@ -284,7 +284,7 @@ namespace FullStack.API.Tests
 
         }
 
-
+        //test get employee where id="". should fail
         [Fact]
         public void g_GetEmployeeEmptyIDFailure()
         {
@@ -308,7 +308,7 @@ namespace FullStack.API.Tests
 
 
         }
-
+        //test get employee where id="1234" and valid structure
         [Fact]
         public void h_GetEmployeeValidIDSuccess()
         {
@@ -336,7 +336,8 @@ namespace FullStack.API.Tests
       
 
         }
-
+        // test insert report to user.id="111"
+        //assume user.id="111" exists in collection
         [Fact]
         public async Task i_InsertReportSuccess()
         {
@@ -361,7 +362,8 @@ namespace FullStack.API.Tests
             Assert.True(reportListCountBefore + 1 == reportListCountAfter);
         }
 
-
+        //test assign task to user.id="111"
+        //assume user.id="111" exists in collection
         [Fact]
         public async Task i_assignTaskSuccess()
         {

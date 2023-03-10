@@ -8,7 +8,7 @@ namespace Fullstack.API.models
     public class Subordinate : Person
     {
         [BsonId]
-       // [BsonRepresentation(BsonType.ObjectId)]
+       
         public string? Id { get; set; }
 
         public string FirstName { get; set; } = null!;

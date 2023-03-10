@@ -29,9 +29,15 @@ namespace Fullstack.API.Services
             return mongoDatabase.GetCollection<T>(name);
         }
 
+        //returns all the collection
+
         public async Task<List<Employee>> GetAsync() =>
             await employeeCollection.Find(_ => true).ToListAsync();
 
+
+        // get Employee from the collection , set it to currEmplloyee and return currEmployee
+        // params: id- Employee's id
+       
         public async Task<Employee?> GetAsync(string id) {
             
             Employee currEmployee= await employeeCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
@@ -50,6 +56,7 @@ namespace Fullstack.API.Services
             }
 
 
+        // add newReport to  ((Employee)newReport.AssignTo).reportList
         public async Task AddReportAsync(Report newReport)
         { 
             Employee employeeToUpdate = await employeeCollection.Find(x => x.Id == newReport.AssignTo).FirstOrDefaultAsync();
@@ -59,6 +66,10 @@ namespace Fullstack.API.Services
             }
             await employeeCollection.ReplaceOneAsync(x => x.Id == newReport.AssignTo, employeeToUpdate);
         }
+
+        // add newWorkTask to  ((Employee)newWorkTask.AssignTo).TaskList
+
+
         public async Task AssignTaskToEmployee(WorkTask newWorkTask)
         {
             Employee employeeToUpdate = await employeeCollection.Find(x => x.Id == newWorkTask.AssignTo).FirstOrDefaultAsync();

@@ -1,7 +1,15 @@
 <div class="container my-5"> 
-    <h1 class="text-center mb-3">Employee List</h1>
 
-<table class="table  mx-3" *ngIf="employees && employees.length > 0" >
+    <h1 class="text-center mb-4">Employee List</h1>
+    
+    <div class="d-flex justify-content-center " *ngIf="isLoading" >
+      <div class="spinner-border" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </div>
+
+<div *ngIf="!isLoading">
+<table class="table  mx-3" *ngIf="employees.length > 0" >
     <thead>
       <tr>
         <th>Name</th>
@@ -25,5 +33,5 @@
     </tbody>
   </table>
   <h5 class="text-secondary mx-3" *ngIf="!employees || employees.length==0">No Employees To Show</h5>
-
+</div>
 </div>

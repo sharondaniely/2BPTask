@@ -1,3 +1,16 @@
+<!--
+
+  This component is to dislpay one Employee
+
+-->
+
+<div class="d-flex justify-content-center " *ngIf="currEmployee.id==''" >
+  <div class="spinner-border" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
+
+<div  *ngIf="currEmployee.id!=''" >
 <div class="container my-4" id="employeeInfo"> 
 <table class="table table-borderless  mx-3" >
     <tbody>
@@ -35,7 +48,7 @@
       <tbody>
         <tr *ngFor="let task of currEmployee.taskList">
           <td class="w-75">{{task.data}} </td>
-          <td class="w-25">{{task.dueDate}}</td>
+          <td class="w-25">due date: {{task.dueDate}}</td>
         </tr>
       </tbody>
     </table>
@@ -62,4 +75,5 @@
         </table>
       
     </div>
+</div>
 </div>

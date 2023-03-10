@@ -12,7 +12,9 @@ import { TaskModalComponent } from '../../task-modal/task-modal/task-modal.compo
   styleUrls: ['./employee-page.component.css']
 })
 export class EmployeePageComponent {
-    currEmployee : Employee = {
+  
+  isLoading=true;
+  currEmployee : Employee = {
     id: '',
     firstName: '',
     lastName:'',
@@ -57,9 +59,18 @@ export class EmployeePageComponent {
             error: (response)=> {
               console.log(response);
             }
-          })
+          });
+          this.isLoading=false;
         }
+        
+      },
+      error: (err)=>{
+        console.log(err);
+      },
+      complete: ()=>{
+        this.isLoading=false;
       }
+
     })
   }
 
