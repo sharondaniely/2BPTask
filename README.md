@@ -1,10 +1,11 @@
-Welcome!
+# Employee Organization App
 
-This Project is a small project that represents organization structure.
+This Project is a small project that represents organization structure as part as home task for an tech interview.
 
 Backend: .Net 6 |
-Frontend: Angular |
+Frontend: Angular 15 |
 DB: MongoDB (cloud)
+
 
 This is my first project in Angalar and first time using NOSQL DB.
 I learned a lot during the task :-)
@@ -44,18 +45,19 @@ In details:
 
 
 
-System requirements in order to run it:
+# System requirements:
 1. Angular 15
 2. Node 18
 3. .Net 6
 
 
-How to run the app:
+# Getting Started:
 1. Clone the project from the git- I used Visual Studio for the API (Backend) and VSCode for the Frontend 
 2. build and run the API- available on https://localhost:7261/swagger/index.html 
 3. serve the frontend using "ng serve"- the app will be available at  http://localhost:4200/ 
-
 in case you have miss some libraries please run "npm i"
+
+
 
 Enjoy the App
 Sharon Daniely
