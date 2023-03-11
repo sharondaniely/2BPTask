@@ -27,9 +27,10 @@ export class TaskModalComponent implements OnInit {
     subordinates: [],
     reports:[]
   };
-
+  hideInput=false;
+  success=true;
   today: Date= new Date();
-  
+  CancelButtonStr="Cancel";
 
   dueDateSelected: NgbDateStruct={
     year: this.today.getFullYear(),
@@ -69,10 +70,17 @@ export class TaskModalComponent implements OnInit {
     this.task.dueDate= new Date(this.dueDateSelected.year, this.dueDateSelected.month-1,this.dueDateSelected.day); //Date constructor requied month indexed [0,11]
     this.employeeService.assignTask(this.task).subscribe( {
       next: (response)=>{
-            this.activeModal.close();
+        this.success=true;
+        //this.activeModal.close();
+
       },
       error: (err: any) => {
-        console.log(err);
+        console.log(err);      
+        this.success=false;
+      },
+      complete:()=>{
+        this.hideInput=true;
+        this.CancelButtonStr='Close';
       }
       
     });

@@ -27,9 +27,10 @@ export class ModalComponent implements OnInit {
     subordinates: [],
     reports:[]
   };
-
+  CancelButtonStr="Cancel";
   closeResult = '';
-  
+  hideInput=false;
+  success=true;
   report : Report={
     id: '',
     data: '',
@@ -56,10 +57,18 @@ export class ModalComponent implements OnInit {
     this.report.id=Guid.create().toString();
     this.employeeService.sendReport(this.report).subscribe( {
       next: (response)=>{
-            this.activeModal.close();
+        this.success=true;
+        //this.activeModal.close();
+      
       },
       error: (err: any) => {
         console.log(err);
+        this.success=false;
+      },
+      complete: ()=>{
+        this.hideInput=true;
+        this.CancelButtonStr='Close';
+
       }
       
     });

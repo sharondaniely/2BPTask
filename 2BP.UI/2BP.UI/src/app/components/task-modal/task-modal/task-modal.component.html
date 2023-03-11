@@ -1,11 +1,17 @@
+<!--
+    Modal in order to assign task to an Employee.
+    
+    appears after pressing "Assign Task" button
+-->
+
 <form #form="ngForm" (ngSubmit)="assignTaskTrigger()"> 
     <div class="modal-header">
-       <h4 class="modal-title">Send report to your manager</h4>
+       <h4 class="modal-title">Assign Task to an Employee</h4>
        <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
            <span aria-hidden="true"></span>
        </button>
    </div>
-   <div class="modal-body">
+   <div class="modal-body" [ngClass]="hideInput? 'd-none': '' ">
       
            <div class="form-group">
              <label for="message-text" class="col-form-label">Task Details:</label>
@@ -26,9 +32,11 @@
 		</div>
     </div>
    </div>
+   <p class="text-center my-3" [ngClass]="hideInput && success? '' : 'd-none'" >Assign task succeeded</p>
+   <p class="text-center my-3 " [ngClass]="hideInput && !success? '' : 'd-none'" >Assign task failed</p>
    <div class="modal-footer ">
-       <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.dismiss('Cross click')" >Cancel</button>
-       <button type="submit" class="btn btn-primary">Save</button>
+       <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.dismiss('Cross click')" >{{CancelButtonStr}}</button>
+       <button type="submit" class="btn btn-primary" [ngClass]="hideInput? ' disabled ': '' " >Save</button>
    </div>
    
    </form>

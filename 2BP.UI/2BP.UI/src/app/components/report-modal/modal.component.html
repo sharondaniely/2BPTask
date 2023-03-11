@@ -1,3 +1,9 @@
+<!--
+    Modal in order to send report to Employee's manager.
+    
+    appears after pressing "Report" button
+-->
+
 <form #form="ngForm" (ngSubmit)="sendReport()"> 
  <div class="modal-header">
     <h4 class="modal-title">Send report to your manager</h4>
@@ -5,7 +11,7 @@
         <span aria-hidden="true"></span>
     </button>
 </div>
-<div class="modal-body">
+<div class="modal-body"  [ngClass]="hideInput? 'd-none': '' " >
    
         <div class="form-group">
           <label for="message-text" class="col-form-label">Message:</label>
@@ -13,9 +19,12 @@
           
         </div>
 </div>
+<p class="text-center my-3" [ngClass]="hideInput && success? '' : 'd-none'" >Send Report succeeded</p>
+<p class="text-center my-3 " [ngClass]="hideInput && !success? '' : 'd-none'" >Send Report failed</p>
+
 <div class="modal-footer ">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.dismiss('Cross click')" >Cancel</button>
-    <button type="submit" class="btn btn-primary">Save</button>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.dismiss('Cross click')">{{CancelButtonStr}}</button>
+    <button type="submit" class="btn btn-primary"  [ngClass]="hideInput? ' disabled ': '' " >Save</button>
 </div>
 
 </form>

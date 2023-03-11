@@ -60,15 +60,12 @@ export class EmployeePageComponent {
               console.log(response);
             }
           });
-          this.isLoading=false;
+          
         }
         
       },
       error: (err)=>{
         console.log(err);
-      },
-      complete: ()=>{
-        this.isLoading=false;
       }
 
     })
